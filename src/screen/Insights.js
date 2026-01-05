@@ -9,6 +9,6 @@ const Insights = () => {
   );
 };
 
-export default Insights;
+export default Insights
 
 const styles = StyleSheet.create({});
