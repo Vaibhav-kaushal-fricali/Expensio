@@ -20,7 +20,7 @@ export default function AppNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="BottomTabs" component={MyTabs} />
-      <Stack.Navigator name="Profile" component={Profile} />
+      <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator>
   );
 }
