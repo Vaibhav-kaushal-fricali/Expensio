@@ -4,6 +4,7 @@ import Create from "../screen/Create";
 import Insights from "../screen/Insights";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Profile from "../screen/Profile";
+import Category from "../screen/Category";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -20,7 +21,7 @@ export default function AppNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="BottomTabs" component={MyTabs} />
-      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Category" component={Category} options={{presentation: "modal"}} />
     </Stack.Navigator>
   );
 }
