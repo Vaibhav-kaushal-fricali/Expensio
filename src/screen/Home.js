@@ -50,6 +50,15 @@ export const expensesData = [
     date: "2026-01-01",
     color: "#06D6A0",
   },
+  {
+    id: "6",
+    icon: "📱",
+    title: "Mobile Recharge for friend",
+    category: "Utilities",
+    amount: 499,
+    date: "2026-01-01",
+    color: "#06D6A0",
+  },
 ];
 
 const Home = ({ navigation }) => {
@@ -72,10 +81,10 @@ const Home = ({ navigation }) => {
       </View>
 
       <FlatList
-        data={[1, 2, 3]}
+        data={expensesData}
         // data={[]}
         renderItem={({ item }) => <ExpenseItemCard item={item} />}
-        // keyExtractor={(item)=> item }
+        keyExtractor={(item) => item.id}
         contentContainerStyle={{ paddingBottom: 20 }}
         ListEmptyComponent={<EmptyList />}
       />
