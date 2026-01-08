@@ -9,10 +9,18 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import tailwind from "twrnc";
-
-const Create = ({ navigation }) => {
+// route passes data from 1 screen to another
+const Create = ({ navigation, route }) => {
   const [amount, setAmount] = useState(null);
   const [title, setTitle] = useState("");
+  const [category, setCategory] = useState({})
+
+  React.useEffect(()=> {
+    if(route.params?.category){
+      console.log("params", route.params?.category);
+      setCategory(route.params?.category)
+    }
+  }, [route.params?.category])
 
   const handleAddexpense = () => {
     try {
@@ -82,8 +90,8 @@ const Create = ({ navigation }) => {
             onPress={handleCategoryInput}
           >
             <View style={tailwind`flex-row items-center`}>
-              <Text style={tailwind`text-2xl mr-3`}>🍔</Text>
-              <Text style={tailwind`text-lg `}>{"Food"}</Text>
+              <Text style={tailwind`text-2xl mr-3`}>{category.icon}</Text>
+              <Text style={tailwind`text-lg `}>{category.name || "Select desired category"}</Text>
             </View>
             <Text style={tailwind`text-xl `}>&gt;</Text>
           </Pressable>
