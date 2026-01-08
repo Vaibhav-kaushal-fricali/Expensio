@@ -1,6 +1,6 @@
 # 💸 Expensio
 
-**Expensio** is a clean, modern, and beginner-friendly expense tracking mobile app built using **React Native + Expo**.  
+**Expensio** is a clean, modern, and beginner-friendly expense tracking mobile app built using **React Native + Tailwind + Expo**.  
 It focuses on simplicity, smooth navigation, and a calm visual experience while helping users track and understand their spending.
 
 ---
