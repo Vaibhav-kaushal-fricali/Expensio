@@ -21,7 +21,7 @@ export default function AppNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="BottomTabs" component={MyTabs} />
-      <Stack.Screen name="Category" component={Category} options={{presentation: "modal"}} />
+      <Stack.Screen name="Category" component={Category} options={{presentation: "modal", headerShown: false}} />
     </Stack.Navigator>
   );
 }

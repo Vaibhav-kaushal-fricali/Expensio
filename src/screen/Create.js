@@ -10,7 +10,7 @@ import {
 import React, { useState } from "react";
 import tailwind from "twrnc";
 
-const Create = () => {
+const Create = ({ navigation }) => {
   const [amount, setAmount] = useState(null);
   const [title, setTitle] = useState("");
 
@@ -30,6 +30,10 @@ const Create = () => {
     } catch (error) {
       console.log("error", error);
     }
+  };
+
+  const handleCategoryInput = () => {
+    navigation.navigate("Category");
   };
   return (
     <View>
@@ -75,6 +79,7 @@ const Create = () => {
           </Text>
           <Pressable
             style={tailwind`border border-gray-400 p-4 rounded-xl flex-row justify-between items-center`}
+            onPress={handleCategoryInput}
           >
             <View style={tailwind`flex-row items-center`}>
               <Text style={tailwind`text-2xl mr-3`}>🍔</Text>
