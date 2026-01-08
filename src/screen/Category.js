@@ -66,9 +66,18 @@ const CATEGORIES = [
 ];
 
 const Category = ({ navigation }) => {
+  const handleSelectedCategory = (category) => {
+    console.log("cat sel", category);
+
+    navigation.popTo("BottomTabs", {
+      screen: "Create",
+      params: { category },
+    });
+  };
   const renderItem = ({ item }) => {
     return (
       <Pressable
+        onPress={() => handleSelectedCategory(item)}
         style={tailwind`flex-1 items-center p-3 m-2 bg-white rounded-xl shadow-sm border border-gray-200`}
       >
         <Text style={tailwind`text-4xl`}>{item.icon}</Text>
