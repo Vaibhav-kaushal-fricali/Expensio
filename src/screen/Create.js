@@ -13,28 +13,32 @@ import tailwind from "twrnc";
 const Create = ({ navigation, route }) => {
   const [amount, setAmount] = useState(null);
   const [title, setTitle] = useState("");
-  const [category, setCategory] = useState({})
+  const [category, setCategory] = useState({});
 
-  React.useEffect(()=> {
-    if(route.params?.category){
+  React.useEffect(() => {
+    if (route.params?.category) {
       console.log("params", route.params?.category);
-      setCategory(route.params?.category)
+      setCategory(route.params?.category);
     }
-  }, [route.params?.category])
+  }, [route.params?.category]);
 
   const handleAddexpense = () => {
     try {
-      if (!amount && title) {
+      if (!category && title && amount) {
+        Alert.alert("Please select one category");
+      }
+      if (!amount && title && category) {
         Alert.alert("Amount can't be empty");
       }
-      if (!title && amount) {
+      if (!title && amount && category) {
         Alert.alert("Enter title");
       }
-      if (!amount || !title) {
+      if (!amount && !title && !category) {
         Alert.alert("Details can't be empty");
       }
-      console.log("amount", amount);
-      console.log("title", title);
+      console.log("cat", category.name);
+      console.log(amount);
+      console.log(title);
     } catch (error) {
       console.log("error", error);
     }
@@ -91,7 +95,9 @@ const Create = ({ navigation, route }) => {
           >
             <View style={tailwind`flex-row items-center`}>
               <Text style={tailwind`text-2xl mr-3`}>{category.icon}</Text>
-              <Text style={tailwind`text-lg `}>{category.name || "Select desired category"}</Text>
+              <Text style={tailwind`text-lg `}>
+                {category.name || "Select desired category"}
+              </Text>
             </View>
             <Text style={tailwind`text-xl `}>&gt;</Text>
           </Pressable>
