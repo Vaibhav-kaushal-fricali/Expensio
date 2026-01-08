@@ -114,7 +114,7 @@ const Create = ({ navigation, route }) => {
         </Pressable>
 
         <View style={tailwind`p-14`}>
-          <Text style={tailwind`justify-center text-center font-bold font-serif  `}>Made by Vaibhav with ♡</Text>
+          <Text style={tailwind`justify-center text-center font-bold font-serif text-red-400 `}>Made by Vaibhav with ♡</Text>
         </View>
       </ScrollView>
     </View>
