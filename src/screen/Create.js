@@ -24,6 +24,9 @@ const Create = ({ navigation, route }) => {
 
   const handleAddexpense = () => {
     try {
+      if (!amount && !title && category) {
+        Alert.alert("Details can't be empty");
+      }
       if (!category && title && amount) {
         Alert.alert("Please select one category");
       }
@@ -32,9 +35,6 @@ const Create = ({ navigation, route }) => {
       }
       if (!title && amount && category) {
         Alert.alert("Enter title");
-      }
-      if (!amount && !title && !category) {
-        Alert.alert("Details can't be empty");
       }
       console.log("cat", category.name);
       console.log(amount);
