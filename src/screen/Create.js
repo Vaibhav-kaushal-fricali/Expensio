@@ -112,6 +112,10 @@ const Create = ({ navigation, route }) => {
             Add Expense
           </Text>
         </Pressable>
+
+        <View style={tailwind`p-14`}>
+          <Text style={tailwind`justify-center text-center font-bold font-serif  `}>Made by Vaibhav with ♡</Text>
+        </View>
       </ScrollView>
     </View>
   );
