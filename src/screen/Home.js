@@ -3,6 +3,7 @@ import React from "react";
 import tailwind from "twrnc";
 import EmptyList from "./components/EmptyList";
 import ExpenseItemCard from "./components/ExpenseItemCard";
+import { useExpenses } from "../context/ExpenseContext";
 
 export const expensesData = [
   {
@@ -62,7 +63,8 @@ export const expensesData = [
 ];
 
 const Home = ({ navigation }) => {
-const totalSpent = expensesData.reduce((sum, item)=> sum + item.amount, 0 )
+  const { expenses } = useExpenses();
+  const totalSpent = expenses.reduce((sum, item) => sum + item.amount, 0);
   return (
     <View style={tailwind`flex-1`}>
       <View style={tailwind`px-5 pt-5 pb-3`}>
@@ -82,7 +84,7 @@ const totalSpent = expensesData.reduce((sum, item)=> sum + item.amount, 0 )
       </View>
 
       <FlatList
-        data={expensesData}
+        data={expenses}
         // data={[]}
         renderItem={({ item }) => <ExpenseItemCard item={item} />}
         keyExtractor={(item) => item.id}

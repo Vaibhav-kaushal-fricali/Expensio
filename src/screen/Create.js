@@ -9,8 +9,10 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import tailwind from "twrnc";
+import { useExpenses } from "../context/ExpenseContext";
 // route passes data from 1 screen to another
 const Create = ({ navigation, route }) => {
+  const { addExpense } = useExpenses();
   const [amount, setAmount] = useState(null);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState({});
@@ -36,9 +38,14 @@ const Create = ({ navigation, route }) => {
       if (!title && amount && category) {
         Alert.alert("Enter title");
       }
-      console.log("cat", category.name);
-      console.log(amount);
-      console.log(title);
+      addExpense({
+        title,
+        amount,
+        category,
+      });
+      if (addExpense) {
+        navigation.goBack();
+      }
     } catch (error) {
       console.log("error", error);
     }
@@ -114,7 +121,11 @@ const Create = ({ navigation, route }) => {
         </Pressable>
 
         <View style={tailwind`p-14`}>
-          <Text style={tailwind`justify-center text-center font-bold font-serif text-red-400 `}>Made by Vaibhav with ♡</Text>
+          <Text
+            style={tailwind`justify-center text-center font-bold font-serif text-red-400 `}
+          >
+            Made by Vaibhav with ♡
+          </Text>
         </View>
       </ScrollView>
     </View>
