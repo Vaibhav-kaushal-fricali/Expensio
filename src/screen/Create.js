@@ -7,7 +7,7 @@ import {
   TextInput,
   View,
 } from "react-native";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import tailwind from "twrnc";
 import { useExpenses } from "../context/ExpenseContext";
 // route passes data from 1 screen to another
@@ -17,7 +17,7 @@ const Create = ({ navigation, route }) => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState({});
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (route.params?.category) {
       console.log("params", route.params?.category);
       setCategory(route.params?.category);

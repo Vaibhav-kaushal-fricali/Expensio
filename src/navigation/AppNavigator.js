@@ -5,6 +5,7 @@ import Insights from "../screen/Insights";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Profile from "../screen/Profile";
 import Category from "../screen/Category";
+import Startup from "../screen/Startup";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -14,6 +15,7 @@ function MyTabs() {
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Create" component={Create} />
       <Tab.Screen name="Insights" component={Insights} />
+      <Tab.Screen name="Startup" component={Startup}/>
     </Tab.Navigator>
   );
 }
